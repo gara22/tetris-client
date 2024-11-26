@@ -12,10 +12,16 @@ type Grid = {
 
 export type GameStateMessage = {
   grid: Grid;
+  level: number;
+  linesCleared: number;
   isGameOver: boolean;
+  score: number;
 };
 
 export type GameState = {
   grid: Cell[];
+  level: number;
+  linesCleared: number;
   isGameOver: boolean;
+  score: number;
 };

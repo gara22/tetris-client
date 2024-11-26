@@ -11,7 +11,10 @@ export type GameProviderState = {
 
 const initialGameState: GameState = {
   grid: [],
+  level: 1,
+  linesCleared: 0,
   isGameOver: false,
+  score: 0,
 };
 
 export const createGameStore = (
@@ -33,11 +36,14 @@ export const createGameStore = (
     const {
       grid: { tiles },
       isGameOver,
+      level,
+      linesCleared,
+      score,
     } = JSON.parse(event.data) as GameStateMessage;
     const arr: Cell[] = Object.values(tiles).sort((a, b) =>
       a.column === b.column ? a.row - b.row : a.column - b.column
     );
-    const newGameState = { grid: arr, isGameOver };
+    const newGameState = { grid: arr, isGameOver, level, linesCleared, score };
     newStore.setState({ gameState: newGameState });
     console.log('store state', newStore.getState());
   };

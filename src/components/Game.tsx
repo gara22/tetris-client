@@ -2,9 +2,10 @@ import React from 'react';
 import Cell from './Cell';
 import GameOver from './GameOver';
 import { useStoreInContext } from '../game/store/store';
+import GameStatusBar from './GameStatusBar';
 
 const Game: React.FC<{ newGame: VoidFunction }> = ({ newGame }) => {
-  const { gameState, gameID } = useStoreInContext((state) => state);
+  const { gameState } = useStoreInContext((state) => state);
 
   if (gameState.isGameOver) {
     return <GameOver newGame={newGame} />;
@@ -12,12 +13,12 @@ const Game: React.FC<{ newGame: VoidFunction }> = ({ newGame }) => {
 
   return (
     <>
-      <div>GameId: {gameID}</div>
+      <GameStatusBar />
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(11, 35px)',
-          gridTemplateRows: 'repeat(21, 35px)',
+          gridTemplateColumns: 'repeat(11, 30px)',
+          gridTemplateRows: 'repeat(21, 30px)',
           gap: '1px',
           border: '1px solid black',
         }}
