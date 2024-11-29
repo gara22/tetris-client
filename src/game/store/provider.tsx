@@ -33,6 +33,7 @@ export const GameStateProvider: React.FC<
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       state.ws.close();
+      localStorage.removeItem('gameId');
     };
   }, [gameId]);
 

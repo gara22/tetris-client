@@ -5,7 +5,9 @@ import GameStart from './game/components/GameStart';
 import { GameStateProvider } from './game/store/provider';
 
 function App() {
-  const [gameIdInput, setGameIdInput] = useState<string>('');
+  const [gameIdInput, setGameIdInput] = useState<string | null>(
+    getGameIdFromLocalStorage()
+  );
   const [gameId, setGameId] = useState<string | null>(null);
 
   const newGame = async () => {
@@ -33,5 +35,9 @@ function App() {
     </GameStateProvider>
   );
 }
+
+const getGameIdFromLocalStorage = () => {
+  return localStorage.getItem('gameId');
+};
 
 export default App;
