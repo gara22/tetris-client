@@ -16,6 +16,7 @@ export type GameStateMessage = {
   linesCleared: number;
   isGameOver: boolean;
   score: number;
+  isGamePaused: boolean;
 };
 
 export type GameState = {
@@ -24,4 +25,18 @@ export type GameState = {
   linesCleared: number;
   isGameOver: boolean;
   score: number;
+  isGamePaused: boolean;
+};
+
+export type MoveMessage = {
+  direction: string;
+  type: 'move';
+};
+
+export type PauseMessage = {
+  type: 'pause';
+};
+
+export type ResumeMessage = {
+  type: 'resume';
 };

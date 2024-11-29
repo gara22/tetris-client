@@ -1,6 +1,23 @@
 import { GAME_FONT_COLOR } from '../../constants';
+import { PauseMessage, ResumeMessage } from '../../types';
+import { useStoreInContext } from '../store/store';
 
 export const SidePanel = () => {
+  const { ws, gameState } = useStoreInContext((state) => state);
+
+  const handlePause = () => {
+    const message: PauseMessage = {
+      type: 'pause',
+    };
+    ws.send(JSON.stringify(message));
+  };
+
+  const handleResume = () => {
+    const message: ResumeMessage = {
+      type: 'resume',
+    };
+    ws.send(JSON.stringify(message));
+  };
   return (
     <div
       style={{
@@ -35,6 +52,19 @@ export const SidePanel = () => {
           <div>0</div>
           <div>High Score</div>
         </Item>
+        <Item>
+          {gameState.isGamePaused ? (
+            <button disabled={gameState.isGameOver} onClick={handleResume}>
+              {' '}
+              Resume{' '}
+            </button>
+          ) : (
+            <button disabled={gameState.isGameOver} onClick={handlePause}>
+              {' '}
+              Pause{' '}
+            </button>
+          )}
+        </Item>
         <div
           style={{
             display: 'flex',
@@ -44,7 +74,7 @@ export const SidePanel = () => {
           }}
         >
           <img
-            src="/public/chill_guy.png"
+            src="/chill_guy.png"
             alt="Tetris Logo"
             style={{
               maxWidth: '100px',

@@ -1,5 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
 import { createGameStore, GameContext } from './store';
+import { MoveMessage } from '../../types';
 
 export const GameStateProvider: React.FC<
   PropsWithChildren<{
@@ -23,7 +24,11 @@ export const GameStateProvider: React.FC<
         ArrowLeft: 'left',
         ArrowRight: 'right',
       };
-      state.ws.send(JSON.stringify({ direction: keyMap[event.key] }));
+      const message: MoveMessage = {
+        direction: keyMap[event.key],
+        type: 'move',
+      };
+      state.ws.send(JSON.stringify(message));
     };
 
     window.addEventListener('keydown', handleKeyDown);
