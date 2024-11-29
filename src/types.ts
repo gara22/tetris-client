@@ -3,7 +3,7 @@ export type Cell = {
   column: number;
   display: string;
   color: string;
-  Blocked: boolean;
+  blocked: boolean;
 };
 
 type Grid = {

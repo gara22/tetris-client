@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import Game from './components/Game';
-import GameStart from './components/GameStart';
+import Game from './game/components/Game';
+import GameStart from './game/components/GameStart';
 import { GameStateProvider } from './game/store/provider';
 
 function App() {

@@ -40,9 +40,11 @@ export const createGameStore = (
       linesCleared,
       score,
     } = JSON.parse(event.data) as GameStateMessage;
-    const arr: Cell[] = Object.values(tiles).sort((a, b) =>
-      a.column === b.column ? a.row - b.row : a.column - b.column
-    );
+    const arr: Cell[] = Object.values(tiles)
+      .sort((a, b) =>
+        a.column === b.column ? a.row - b.row : a.column - b.column
+      )
+      .filter((cell) => cell.display !== 'X');
     const newGameState = { grid: arr, isGameOver, level, linesCleared, score };
     newStore.setState({ gameState: newGameState });
     console.log('store state', newStore.getState());

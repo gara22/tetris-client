@@ -1,14 +1,15 @@
 import React from 'react';
-import { useStoreInContext } from '../game/store/store';
+import { useStoreInContext } from '../store/store';
 
 const GameStatusBar: React.FC = () => {
-  const { gameState, gameID } = useStoreInContext((state) => state);
+  const { gameState } = useStoreInContext((state) => state);
 
   return (
     <div
       style={{
         display: 'flex',
         flexDirection: 'column',
+        color: 'whitesmoke',
       }}
     >
       <div
@@ -19,11 +20,9 @@ const GameStatusBar: React.FC = () => {
       >
         <span>Level {gameState.level}</span>
         <span>Score {gameState.score}</span>
-        <span>Lines Cleared {gameState.linesCleared}</span>
+        {/* <span>Lines Cleared {gameState.linesCleared}</span> */}
       </div>
-      <small>
-        Game ID: <b>{gameID}</b>
-      </small>
+      <small>{/* Game ID: <b>{gameID}</b> */}</small>
     </div>
   );
 };
