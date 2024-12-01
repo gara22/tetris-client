@@ -1,7 +1,7 @@
 export type Cell = {
   row: number;
   column: number;
-  display: string;
+  display: CellKind;
   color: string;
   blocked: boolean;
 };
@@ -17,15 +17,11 @@ export type GameStateMessage = {
   isGameOver: boolean;
   score: number;
   isGamePaused: boolean;
+  nextShape: string;
 };
 
-export type GameState = {
+export type GameState = Omit<GameStateMessage, 'grid'> & {
   grid: Cell[];
-  level: number;
-  linesCleared: number;
-  isGameOver: boolean;
-  score: number;
-  isGamePaused: boolean;
 };
 
 export type MoveMessage = {
@@ -40,3 +36,5 @@ export type PauseMessage = {
 export type ResumeMessage = {
   type: 'resume';
 };
+
+export type CellKind = 'L1' | 'L2' | 'Z1' | 'Z2' | 'I' | 'O' | 'T' | 'X' | '0';

@@ -1,33 +1,45 @@
 import React from 'react';
-import { ansiToHex } from '../../utils';
-import { GAME_BACKGROUND_COLOR, GAME_BORDER_RADIUS } from '../../constants';
+import {
+  CELL_BLUE,
+  CELL_GREEN,
+  CELL_LIGHT_BLUE,
+  CELL_ORANGE,
+  CELL_PURPLE,
+  CELL_RED,
+  CELL_YELLOW,
+  GAME_BACKGROUND_COLOR,
+} from '../../constants';
+import { CellKind } from '../../types';
 
 type CellProps = {
   row: number;
   column: number;
-  display: string;
+  display: CellKind;
   color: string;
   blocked: boolean;
 };
 
-const Cell: React.FC<CellProps> = ({ row, column, display, color }) => {
-  const colorMap: { [key: string]: string } = {
-    X: 'red',
-    '0': GAME_BACKGROUND_COLOR,
-  };
+const colorMap: Record<CellKind, string> = {
+  X: 'black',
+  '0': GAME_BACKGROUND_COLOR,
+  L1: CELL_ORANGE,
+  L2: CELL_BLUE,
+  Z1: CELL_GREEN,
+  Z2: CELL_RED,
+  I: CELL_LIGHT_BLUE,
+  O: CELL_YELLOW,
+  T: CELL_PURPLE,
+};
 
-  const backgroundColor = colorMap[display] || ansiToHex(color) || 'hotpink';
+const Cell: React.FC<CellProps> = ({ row, column, display, color }) => {
+  const backgroundColor = colorMap[display];
   return (
     <div
       style={{
-        // outline: backgroundColor === 'white' ? '' : '1px solid black',
         backgroundColor: backgroundColor,
         aspectRatio: '1/1',
         border: '1px solid #2f3a58',
         borderRadius: '7px',
-        // minHeight: '20px',
-        // minWidth: '20px',
-        // fontSize: '10px',
       }}
     ></div>
   );

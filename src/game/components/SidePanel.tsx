@@ -39,13 +39,11 @@ export const SidePanel = () => {
           gap: '10px',
           border: 'inherit',
           borderRadius: 'inherit',
-          // justifyContent: 'space-evenly',
           backgroundColor: '#5f5e7d',
-          // padding: '5px',
         }}
       >
         <Item>
-          <div>Block</div>
+          <div>{gameState.nextShape}</div>
           <div>Next Block</div>
         </Item>
         <Item>

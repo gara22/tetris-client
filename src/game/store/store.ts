@@ -16,6 +16,7 @@ const initialGameState: GameState = {
   isGameOver: false,
   score: 0,
   isGamePaused: false,
+  nextShape: '',
 };
 
 export const createGameStore = (
@@ -43,6 +44,7 @@ export const createGameStore = (
       linesCleared,
       score,
       isGamePaused,
+      nextShape,
     } = JSON.parse(event.data) as GameStateMessage;
     const arr: Cell[] = Object.values(tiles)
       .sort((a, b) =>
@@ -56,6 +58,7 @@ export const createGameStore = (
       linesCleared,
       score,
       isGamePaused,
+      nextShape,
     };
     newStore.setState({ gameState: newGameState });
     console.log('store state', newStore.getState());
