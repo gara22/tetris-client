@@ -1,6 +1,7 @@
 import { Cell, GameState, GameStateMessage } from '../../types';
 import { createStore, StoreApi, useStore } from 'zustand';
 import React, { useContext } from 'react';
+import { SERVER_HOST } from '../../config';
 
 export type GameProviderState = {
   gameID: string;
@@ -23,7 +24,7 @@ export const createGameStore = (
   gameId: string
   // setGameId: (gameId: string) => void
 ) => {
-  const socketConnection = new WebSocket('ws://localhost:8080/ws?id=' + gameId);
+  const socketConnection = new WebSocket(`ws://${SERVER_HOST}/ws?id=${gameId}`);
 
   localStorage.setItem('gameId', gameId);
 

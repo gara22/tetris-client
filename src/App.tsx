@@ -3,6 +3,7 @@ import './App.css';
 import Game from './game/components/Game';
 import GameStart from './game/components/GameStart';
 import { GameStateProvider } from './game/store/provider';
+import { SERVER_HOST } from './config';
 
 function App() {
   const [gameIdInput, setGameIdInput] = useState<string | null>(
@@ -11,7 +12,7 @@ function App() {
   const [gameId, setGameId] = useState<string | null>(null);
 
   const newGame = async () => {
-    const response = await fetch('http://localhost:8080/new-game', {
+    const response = await fetch(`http://${SERVER_HOST}/new-game`, {
       method: 'POST',
     });
     const json = await response.json();
