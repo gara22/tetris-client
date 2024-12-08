@@ -1,7 +1,5 @@
 import React from 'react';
-import Cell from './Cell';
-import GameStatusBar from './GameStatusBar';
-import { GAME_BACKGROUND_COLOR, GAME_BORDER_RADIUS } from '../../constants';
+import { GAME_BACKGROUND_COLOR } from '../../constants';
 import GameOver from './GameOver';
 import { useStoreInContext } from '../store/store';
 import { GamePanel } from './GamePanel';

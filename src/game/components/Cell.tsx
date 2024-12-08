@@ -31,7 +31,7 @@ const colorMap: Record<CellKind, string> = {
   T: CELL_PURPLE,
 };
 
-const Cell: React.FC<CellProps> = ({ row, column, display, color }) => {
+const Cell: React.FC<CellProps> = ({ display }) => {
   const backgroundColor = colorMap[display];
   return (
     <div
