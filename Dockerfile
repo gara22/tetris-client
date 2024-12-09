@@ -1,21 +1,30 @@
-# Step 1: Use Node.js to build the application
-FROM node:18 as builder
+# Step 1: Build the React app
+FROM node:18 as build
 
-# Set working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to install dependencies
+# Copy package files and install dependencies
 COPY package.json package-lock.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the source code into the container
-COPY . .
+# Copy the rest of the application files
+COPY . ./
 
-# Build the production bundle
+# Build the React app for production
 RUN npm run build
 
-# Step 2: Output the bundle to a volume (optional)
-# If you don't need to run the app within the container,
-# You can copy the `dist` folder to your host.
+# Step 2: Serve the app with Nginx
+FROM nginx:alpine
+
+# Copy build output to Nginx's default static files directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Optional: Replace the default Nginx configuration with your own
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
