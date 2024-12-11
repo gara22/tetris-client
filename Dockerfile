@@ -11,6 +11,8 @@ RUN npm install
 # Copy the rest of the application files
 COPY . ./
 
+ENV VITE_SERVER_HOST=http://husi.lol
+
 # Build the React app for production
 RUN npm run build
 
