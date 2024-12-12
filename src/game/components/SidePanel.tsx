@@ -1,3 +1,4 @@
+import { CDN_HOST } from '../../config';
 import { GAME_FONT_COLOR } from '../../constants';
 import { PauseMessage, ResumeMessage } from '../../types';
 import { useStoreInContext } from '../store/store';
@@ -72,7 +73,7 @@ export const SidePanel = () => {
           }}
         >
           <img
-            src="/chill_guy.png"
+            src={`http://${CDN_HOST}/tetris-client/chill_guy.png`}
             alt="Tetris Logo"
             style={{
               maxWidth: '100px',

@@ -12,6 +12,7 @@ RUN npm install
 COPY . ./
 
 ENV VITE_SERVER_HOST=MY_APP_SERVER_HOST
+ENV VITE_CDN_HOST=MY_APP_CDN_HOST
 
 # Build the React app for production
 RUN npm run build
