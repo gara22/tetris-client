@@ -24,7 +24,9 @@ export const createGameStore = (
   gameId: string
   // setGameId: (gameId: string) => void
 ) => {
-  const socketConnection = new WebSocket(`ws://${SERVER_HOST}/ws?id=${gameId}`);
+  const socketConnection = new WebSocket(
+    `wss://${SERVER_HOST}/ws?id=${gameId}`
+  );
 
   localStorage.setItem('gameId', gameId);
 
