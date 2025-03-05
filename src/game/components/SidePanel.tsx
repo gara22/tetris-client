@@ -73,7 +73,7 @@ export const SidePanel = () => {
           }}
         >
           <img
-            src={`http://${CDN_HOST}/tetris-client/chill_guy.png`}
+            src={`https://${CDN_HOST}/tetris-client/chill_guy.png`}
             alt="Tetris Logo"
             style={{
               maxWidth: '100px',
