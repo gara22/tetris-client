@@ -7,8 +7,18 @@ type GameStartProps = {
   newGame: () => Promise<void>;
 };
 
+const getGameIdFromLocalStorage = () => {
+  const gameId = localStorage.getItem('gameId');
+  if (gameId) {
+    return gameId;
+  }
+  return null;
+};
+
 const GameStart: React.FC<GameStartProps> = ({ setGameID, newGame }) => {
-  const [gameIdInput, setGameIdInput] = useState<string | null>(null);
+  const [gameIdInput, setGameIdInput] = useState<string | null>(
+    getGameIdFromLocalStorage()
+  );
   const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(false);
 
   return (
