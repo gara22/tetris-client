@@ -18,7 +18,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ onClose }) => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch(`http://${SERVER_HOST}/scores`);
+        const response = await fetch(`https://${SERVER_HOST}/scores`);
         if (!response.ok) {
           throw new Error('Failed to fetch leaderboard');
         }

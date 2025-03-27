@@ -9,7 +9,7 @@ function App() {
   const [gameId, setGameId] = useState<string | null>(null);
 
   const newGame = async () => {
-    const response = await fetch(`http://${SERVER_HOST}/new-game`, {
+    const response = await fetch(`https://${SERVER_HOST}/new-game`, {
       method: 'POST',
     });
     const json = await response.json();

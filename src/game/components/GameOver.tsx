@@ -20,7 +20,7 @@ const GameOver: React.FC<GameOverProps> = ({ newGame, gameId }) => {
     }
 
     try {
-      const response = await fetch(`http://${SERVER_HOST}/add-score`, {
+      const response = await fetch(`https://${SERVER_HOST}/add-score`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
