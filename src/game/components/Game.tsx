@@ -6,10 +6,10 @@ import { GamePanel } from './GamePanel';
 import { SidePanel } from './SidePanel';
 
 const Game: React.FC<{ newGame: VoidFunction }> = ({ newGame }) => {
-  const { gameState } = useStoreInContext((state) => state);
+  const { gameState, gameID } = useStoreInContext((state) => state);
 
   if (gameState.isGameOver) {
-    return <GameOver newGame={newGame} />;
+    return <GameOver newGame={newGame} gameId={gameID} />;
   }
 
   return (

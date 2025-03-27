@@ -1,10 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.app-container {
+.game-start-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,42 +6,12 @@
   height: 100vh;
   background-color: #99d6fc; /* Light blue background */
   color: #333; /* Dark gray text for readability */
-  animation: fadeIn 0.5s ease-in-out;
 }
 
-.app-title {
+.game-start-title {
   font-size: 3rem;
   margin-bottom: 20px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  animation: slideDown 0.5s ease-out;
-}
-
-.leaderboard-button-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.leaderboard-button-container button {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: #ffdd57;
-  color: #333;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.leaderboard-button-container button:hover {
-  background-color: #ffc107;
-  transform: scale(1.05);
-}
-
-.leaderboard-button-container button:active {
-  background-color: #e0a800;
-  transform: scale(1);
 }
 
 .input-container {
@@ -81,29 +45,6 @@
   box-shadow: 0 0 8px rgba(0, 95, 153, 0.5);
 }
 
-.join-game-button {
-  padding: 12px 25px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: #28a745; /* Green button for "Join Game" */
-  color: white; /* White text for contrast */
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.join-game-button:hover {
-  background-color: #218838; /* Slightly darker green on hover */
-  transform: scale(1.05);
-}
-
-.join-game-button:active {
-  background-color: #1e7e34; /* Even darker green on active */
-  transform: scale(1);
-}
-
 .button-group {
   display: flex;
   justify-content: center;
@@ -131,24 +72,4 @@
 .button-group button:active {
   background-color: #004c7a; /* Even darker blue on active */
   transform: scale(1);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }

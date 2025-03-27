@@ -1,0 +1,122 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.modal-content .info-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.modal-content .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-content button:active {
+  background-color: #0056b3;
+}
+
+.modal-content .decline-button {
+  /* background-color: white; */
+  color: #333;
+  /* border: 1px solid #ccc; */
+}
+
+.modal-content .decline-button:hover {
+  background-color: #ff4d4d; /* Red hover effect */
+  color: white;
+  border-color: #ff4d4d;
+}
+
+.modal-content .decline-button:active {
+  background-color: #cc0000; /* Darker red for active state */
+  border-color: #cc0000;
+}
+
+.game-over-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Add space between buttons */
+  margin-top: 20px; /* Add some space above the buttons */
+}
+
+.game-over-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.game-over-buttons button:first-child {
+  background-color: #213547; /* Darker blue for "Play Again" */
+  color: white;
+}
+
+.game-over-buttons button:first-child:hover {
+  background-color: #1a2a3d; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.game-over-buttons button:last-child {
+  background-color: #007bff; /* Blue for "Leaderboard" */
+  color: white;
+}
+
+.game-over-buttons button:last-child:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}

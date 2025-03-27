@@ -27,10 +27,14 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color:#99d6fc
+  flex-direction: column; /* Ensure content stacks vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  min-width: 0; /* Remove any minimum width constraints */
+  min-height: 0; /* Remove any minimum height constraints */
+  background-color:#99d6fc;
 }
 
 h1 {

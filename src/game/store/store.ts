@@ -64,7 +64,7 @@ export const createGameStore = (
       nextShape,
     };
     newStore.setState({ gameState: newGameState });
-    console.log('store state', newStore.getState());
+    // console.log('store state', newStore.getState());
   };
 
   socketConnection.onerror = () => {

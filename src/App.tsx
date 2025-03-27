@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 import Game from './game/components/Game';
-import GameStart from './game/components/GameStart';
+import GameStart from './game/components/GameStart'; // Import GameStart
 import { GameStateProvider } from './game/store/provider';
 import { SERVER_HOST } from './config';
 
 function App() {
-  const [gameIdInput, setGameIdInput] = useState<string | null>(
-    getGameIdFromLocalStorage()
-  );
   const [gameId, setGameId] = useState<string | null>(null);
 
   const newGame = async () => {
-    const response = await fetch(`https://${SERVER_HOST}/new-game`, {
+    const response = await fetch(`http://${SERVER_HOST}/new-game`, {
       method: 'POST',
     });
     const json = await response.json();
@@ -20,14 +17,7 @@ function App() {
   };
 
   if (!gameId) {
-    return (
-      <GameStart
-        gameIdInput={gameIdInput}
-        setGameIdInput={setGameIdInput}
-        setGameID={setGameId}
-        newGame={newGame}
-      />
-    );
+    return <GameStart setGameID={setGameId} newGame={newGame} />;
   }
 
   return (
@@ -36,9 +26,5 @@ function App() {
     </GameStateProvider>
   );
 }
-
-const getGameIdFromLocalStorage = () => {
-  return localStorage.getItem('gameId');
-};
 
 export default App;
