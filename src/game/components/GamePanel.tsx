@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { GAME_BACKGROUND_COLOR, GAME_BORDER_RADIUS } from '../../constants';
 import { useStoreInContext } from '../store/store';
 import Cell from './Cell';
@@ -5,7 +6,10 @@ import GameStatusBar from './GameStatusBar';
 
 export const GamePanel = () => {
   const { gameState } = useStoreInContext((state) => state);
-
+  const grid = useMemo(
+    () => (gameState.grid.length === 0 ? Array(180).fill({}) : gameState.grid),
+    [gameState.grid]
+  );
   return (
     <div
       style={{
@@ -31,7 +35,7 @@ export const GamePanel = () => {
           justifyContent: 'center',
         }}
       >
-        {gameState?.grid.map((cell, i) => (
+        {grid.map((cell, i) => (
           <Cell
             key={i}
             row={cell.row}

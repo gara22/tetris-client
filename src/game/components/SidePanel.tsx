@@ -44,7 +44,7 @@ export const SidePanel = () => {
         }}
       >
         <Item>
-          <div>{gameState.nextShape}</div>
+          <div>{gameState.nextShape || 'N/A'}</div>
           <div>Next Block</div>
         </Item>
         <Item>
