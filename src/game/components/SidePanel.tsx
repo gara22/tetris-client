@@ -1,7 +1,7 @@
 import { CDN_HOST } from '../../config';
-import { GAME_FONT_COLOR } from '../../constants';
 import { PauseMessage, ResumeMessage } from '../../types';
 import { useStoreInContext } from '../store/store';
+import styles from './SidePanel.module.css';
 
 export const SidePanel = () => {
   const { ws, gameState } = useStoreInContext((state) => state);
@@ -19,30 +19,10 @@ export const SidePanel = () => {
     };
     ws.send(JSON.stringify(message));
   };
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#5f5e7d',
-        borderRadius: '20px',
-        padding: '5px',
-        boxShadow: '10px 10px 0px #77c9ff',
-        border: '2px solid #2d3857',
-        color: GAME_FONT_COLOR,
-      }}
-    >
-      <div
-        style={{
-          flex: '1',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px',
-          border: 'inherit',
-          borderRadius: 'inherit',
-          backgroundColor: '#5f5e7d',
-        }}
-      >
+    <div className={styles.sidePanel}>
+      <div className={styles.sidePanelContent}>
         <Item>
           <div>{gameState.nextShape || 'N/A'}</div>
           <div>Next Block</div>
@@ -54,31 +34,19 @@ export const SidePanel = () => {
         <Item>
           {gameState.isGamePaused ? (
             <button disabled={gameState.isGameOver} onClick={handleResume}>
-              {' '}
-              Resume{' '}
+              Resume
             </button>
           ) : (
             <button disabled={gameState.isGameOver} onClick={handlePause}>
-              {' '}
-              Pause{' '}
+              Pause
             </button>
           )}
         </Item>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '1',
-            justifyContent: 'end',
-          }}
-        >
+        <div className={styles.logoContainer}>
           <img
             src={`https://${CDN_HOST}/tetris-client/chill_guy.png`}
             alt="Tetris Logo"
-            style={{
-              maxWidth: '100px',
-              alignItems: 'center',
-            }}
+            className={styles.logo}
           />
         </div>
       </div>
@@ -87,16 +55,5 @@ export const SidePanel = () => {
 };
 
 const Item = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-        borderBottom: '2px solid #2d3857',
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={styles.item}>{children}</div>;
 };

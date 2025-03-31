@@ -1,9 +1,10 @@
 import React from 'react';
-import { GAME_BACKGROUND_COLOR } from '../../constants';
 import GameOver from './GameOver';
 import { useStoreInContext } from '../store/store';
 import { GamePanel } from './GamePanel';
 import { SidePanel } from './SidePanel';
+import MobileControls from './MobileControls'; // Import the MobileControls component
+import styles from './Game.module.css';
 
 const Game: React.FC<{ newGame: VoidFunction }> = ({ newGame }) => {
   const { gameState, gameID } = useStoreInContext((state) => state);
@@ -13,16 +14,16 @@ const Game: React.FC<{ newGame: VoidFunction }> = ({ newGame }) => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '20px',
-        color: GAME_BACKGROUND_COLOR,
-      }}
-    >
-      <GamePanel />
-      <SidePanel />
+    <div className={styles.gameContainer}>
+      <div className={styles.gamePanel}>
+        <GamePanel />
+        <div className={styles.sidePanelContainer}>
+          <SidePanel />
+        </div>
+      </div>
+      <div className={styles.mobileControls}>
+        <MobileControls />
+      </div>
     </div>
   );
 };

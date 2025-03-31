@@ -1,0 +1,28 @@
+.gamePanel {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--GAME_BACKGROUND_COLOR);
+  border-radius: var(--GAME_BORDER_RADIUS);
+  box-shadow: 10px 10px 0px #77c9ff;
+  padding: 20px;
+  gap: 20px;
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(9, 30px);
+  grid-auto-rows: 1fr;
+  border: 3px solid #f9b074;
+  border-radius: var(--GAME_BORDER_RADIUS);
+  padding: 10px;
+  justify-content: center;
+}
+
+/* Mobile view: Stack SidePanel below GamePanel */
+@media (max-width: 576px) {
+  .gameGrid {
+    grid-template-columns: repeat(9, 20px);
+
+  }
+
+}

@@ -1,0 +1,40 @@
+.sidePanel {
+  display: flex;
+  flex-direction: column;
+  background-color: #5f5e7d;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 10px 10px 0px #77c9ff;
+  border: 2px solid #2d3857;
+  color: var(--GAME_FONT_COLOR);
+  flex: 1;
+}
+
+.sidePanelContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: inherit;
+  border-radius: inherit;
+  background-color: #5f5e7d;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 2px solid #2d3857;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.logo {
+  max-width: 100px;
+  align-items: center;
+}

@@ -12,3 +12,16 @@ export const CELL_ORANGE = '#fb973f';
 export const CELL_YELLOW = '#eded2f';
 export const CELL_PURPLE = '#c446eb';
 export const CELL_BLUE = '#383aba';
+
+export const COLORS = {
+  CELL_RED,
+  CELL_GREEN,
+  CELL_LIGHT_BLUE,
+  CELL_ORANGE,
+  CELL_YELLOW,
+  CELL_PURPLE,
+  CELL_BLUE,
+  GAME_BACKGROUND_COLOR,
+  GAME_BORDER_RADIUS,
+  GAME_FONT_COLOR,
+};

@@ -1,0 +1,52 @@
+.gameContainer {
+  display: flex;
+  flex-direction: row; /* Ensure GamePanel and SidePanel are side by side */
+  color: var(--GAME_BACKGROUND_COLOR);
+}
+
+.gamePanel {
+  flex: 4; /* GamePanel takes 4 parts of the available space */
+  display: flex;
+
+  gap: 20px;
+}
+
+.sidePanelContainer {
+  flex: 1; /* SidePanel takes 1 part of the available space */
+  display: flex;
+  flex-direction: column; /* Default layout for SidePanel content */
+  gap: 20px;
+}
+
+.mobileControls {
+  display: none; /* Hide MobileControls by default */
+}
+
+/* Mobile view: Keep SidePanel next to GamePanel, stack MobileControls below */
+@media (max-width: 576px) {
+  .gameContainer {
+    flex-direction: column; /* Stack GamePanel and SidePanel vertically */
+    align-items: stretch;
+  }
+
+  .gamePanel {
+    flex: none; /* Allow GamePanel to take full width */
+    display: flex;
+    flex-direction: row; /* Keep SidePanel next to GamePanel */
+    gap: 0;
+  }
+
+  .sidePanelContainer {
+    flex: none; /* Allow SidePanel to take full width */
+    display: flex;
+    flex-direction: row; /* Keep SidePanel next to GamePanel */
+    justify-content: space-between;
+  }
+
+  .mobileControls {
+    display: flex; /* Show MobileControls in mobile view */
+    order: 2; /* Ensure MobileControls appear below GamePanel and SidePanel */
+    margin-top: 10px;
+    justify-content: center;
+  }
+}
